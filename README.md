@@ -48,13 +48,18 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
 Run the script in your terminal:
+
 python app.py
+
 Open the application in your browser:
-Go to http://127.0.0.1:5000/ to see the Flask app running. 🎉
+Go to http://127.0.0.1:5000/ to see the Flask app running. 
+
 Usage
 Upload a research paper (text format).
+
 Extract keywords using TF-IDF.
+
 View highlighted keywords in the document.
-Contributing
-Feel free to contribute! Fork the repository, create a new branch, and submit a pull request.
+
