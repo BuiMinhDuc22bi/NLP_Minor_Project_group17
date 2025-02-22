@@ -4,6 +4,7 @@ import re
 import nltk
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize
 
 app = Flask(__name__)
 # Set NLTK data directory
@@ -76,13 +77,21 @@ def extract_topn_from_vector(feature_names, sorted_items, topn=10):
         })
     
     return results
-
+# Generate Summary
+def generate_summary(text, keywords, topn=5):
+    sentences = sent_tokenize(text)
+    sentence_scores = {
+        sentence: sum(keywords.get(word, 0) for word in sentence.split() if word in keywords)
+        for sentence in sentences
+    }
+    sorted_sentences = sorted(sentence_scores.items(), key=lambda x: x[1], reverse=True)
+    summary = " ".join([sent[0] for sent in sorted_sentences[:topn]])
+    return summary
 @app.route('/')
 def index():
     return render_template('index.html')
-
 @app.route('/extract_keywords', methods=['POST'])
-def extract_keywords():
+def extract_summary():
     document = request.files['file']
     if document.filename == '':
         return render_template('index.html', error='No document selected')
@@ -90,17 +99,25 @@ def extract_keywords():
     if document:
         text = document.read().decode('utf-8', errors='ignore')
 
-        # Preprocess and highlight keywords in the document
-        preprocessed_text = preprocess_and_highlight(text, [])  # Pass empty list for now
-        tf_idf_vector = tfidf_transformer.transform(cv.transform([preprocessed_text]))
+        # Extract keywords using TF-IDF
+        tf_idf_vector = tfidf_transformer.fit_transform(cv.fit_transform([text]))
+        feature_names = cv.get_feature_names_out()
         sorted_items = sort_coo(tf_idf_vector.tocoo())
         keywords = extract_topn_from_vector(feature_names, sorted_items, 20)
 
-        # Return the document with highlighted keywords
-        highlighted_text = preprocess_and_highlight(text, [kw['keyword'] for kw in keywords])  # Extract keywords for highlighting
-        
-        return render_template('keywords.html', keywords=keywords, highlighted_text=highlighted_text)
+        # Convert keyword list into a dictionary for summary generation
+        keyword_dict = {kw['keyword']: kw['score'] for kw in keywords}
+
+        # Generate summary
+        summary = generate_summary(text, keyword_dict, 5)
+
+        # Highlight keywords in the original text
+        highlighted_text = preprocess_and_highlight(text, [kw['keyword'] for kw in keywords])
+
+        return render_template('keywords.html', summary=summary, keywords=keywords, highlighted_text=highlighted_text)
+
     return render_template('index.html')
+
 
 
 @app.route('/search_keywords', methods=['POST'])
