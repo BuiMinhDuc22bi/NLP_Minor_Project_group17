@@ -54,7 +54,7 @@ def preprocess_and_highlight(txt, keywords):
             # Highlight the keyword by wrapping it in <mark> tags
             original_txt = re.sub(rf"({re.escape(keyword_lower)})", r"<mark>\1</mark>", original_txt)
 
-    return original_txt
+    return original_txt, filtered_words  # Now returning filtered_words
 
 def sort_coo(coo_matrix):
     tuples = zip(coo_matrix.col, coo_matrix.data)
