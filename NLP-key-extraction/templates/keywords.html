@@ -21,6 +21,12 @@
             border-radius: 5px;
             border: 1px solid #ddd;
         }
+        .summary-text {
+            background-color: #eef7ff;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #cce5ff;
+        }
     </style>
 </head>
 <body>
@@ -49,6 +55,12 @@
             </div>
         </div>
 
+        <!-- Text Summary Section -->
+        <h3 class="mt-4 mb-3">Text Summary</h3>
+        <div class="summary-text">
+            {{ summary }}
+        </div>
+
         <!-- Document with Highlighted Keywords -->
         <h3 class="mt-4 mb-3">Document with Highlighted Keywords</h3>
         <div class="highlighted-text">
@@ -57,7 +69,7 @@
 
     </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Optional JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
