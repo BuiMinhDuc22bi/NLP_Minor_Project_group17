@@ -1,36 +1,41 @@
-# NLP_Minor_Project_group17
+NLP Minor Project (Group 17)
 Keyword Extraction from Research Papers
 This project implements a Keyword Extraction system using TF-IDF to extract important keywords from research papers. The system preprocesses text data, calculates TF-IDF scores, and highlights the most important terms from a collection of papers.
 
 Features
-Text Preprocessing: The text is cleaned by converting it to lowercase, removing HTML tags, special characters, digits, and stopwords, as well as lemmatizing the words.
-TF-IDF Keyword Extraction: The system uses the Term Frequency-Inverse Document Frequency (TF-IDF) method to extract the most significant keywords from the text.
-Flask Web Application: A web interface allows users to upload research papers (in text format), extract the top keywords, and highlight them in the document.
+Text Preprocessing:
+
+Converts text to lowercase
+Removes HTML tags, special characters, digits, and stopwords
+Applies lemmatization for better word processing
+TF-IDF Keyword Extraction:
+
+Uses Term Frequency-Inverse Document Frequency (TF-IDF) to extract the most significant keywords
+Flask Web Application:
+
+Allows users to upload research papers (in text format)
+Extracts top keywords from the document
+Highlights the most important terms in the text
 Installation
-To run this project, you'll need to have the following dependencies installed:
 
-Python 3.x
-Required libraries:
-pandas
-nltk
-sklearn
-flask
-matplotlib
-pickle
-You can install the required libraries with the following command:
+Prerequisites
+Ensure you have Python 3.x installed.
+Then, install the required libraries:
 
-1. Install Flask using pip
-Open your terminal or command prompt and run:
 
-pip install flask
-2. Verify the Installation
-After installation, check if Flask is installed by running:
+pip install pandas nltk scikit-learn flask matplotlib pickle
+
+Verify Flask Installation
+
+To check if Flask is installed correctly, run:
 
 
 python -c "import flask; print(flask.__version__)"
-If it prints a version number (e.g., 2.2.5), Flask is installed correctly. 
 
-3. Create a Simple Flask App (Optional)
+If it prints a version number (e.g., 2.2.5), Flask is installed correctly.
+
+Run the Flask App
+
 Create a new Python file (e.g., app.py) and add this code:
 
 from flask import Flask
@@ -43,6 +48,13 @@ def home():
 
 if __name__ == '__main__':
     app.run(debug=True)
-Run it with:
+Run the script in your terminal:
 python app.py
-Then, open http://127.0.0.1:5000/ in your browser to see it running.
+Open the application in your browser:
+Go to http://127.0.0.1:5000/ to see the Flask app running. 🎉
+Usage
+Upload a research paper (text format).
+Extract keywords using TF-IDF.
+View highlighted keywords in the document.
+Contributing
+Feel free to contribute! Fork the repository, create a new branch, and submit a pull request.
