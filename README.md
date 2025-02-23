@@ -20,8 +20,9 @@ This project focuses on keyword extraction to identify the most frequently used 
 - Allows users to upload research papers (in text format)
 - Extracts top keywords from the document
 - Highlights the most important terms in the text
+- Summary based on the most popular keywords
 
-## System Requirements
+
 
 
 ## Installation
@@ -30,6 +31,9 @@ This project focuses on keyword extraction to identify the most frequently used 
 ### Prerequisites
 Ensure you have Python 3.x installed.
 Then, install the required libraries:
+
+## Dataset
+Our dataset, paper.csv, is included, zipped in the NLP-key-extraction folder and will run automatically in Keyword Extraction with Python.ipynb, so there is no need to unzip it.
 
 ```sh
 pip install pandas nltk scikit-learn flask matplotlib pickle flask
@@ -44,28 +48,9 @@ python -c "import flask; print(flask.__version__)"
 
 If it prints a version number (e.g., `2.2.5`), Flask is installed correctly.
 
-## Downloading Models
-
-## Dataset
-Our dataset, paper.csv, is included, zipped in the NLP-key-extraction folder and will run automatically in Keyword Extraction with Python.ipynb, so there is no need to unzip it.
 
 
-## Run the Flask App
-
-Create a new Python file (e.g., `app.py`) and add this code:
-
-```python
-from flask import Flask
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Hello, Flask is working!"
-
-if __name__ == '__main__':
-    app.run(debug=True)
-```
+## Deployment and Run Flask
 
 Run the script in your terminal:
 
