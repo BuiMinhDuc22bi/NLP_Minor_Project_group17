@@ -46,6 +46,9 @@ If it prints a version number (e.g., `2.2.5`), Flask is installed correctly.
 
 ## Downloading Models
 
+## Dataset
+Our dataset, paper.csv, is included, zipped in the NLP-key-extraction folder and will run automatically in Keyword Extraction with Python.ipynb, so there is no need to unzip it.
+
 
 ## Run the Flask App
 
