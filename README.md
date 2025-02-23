@@ -1,12 +1,12 @@
 # NLP Minor Project (Group 17)
 
 ## Project Overview
-[Project Overview](#project-overview)
+
 
 This project focuses on keyword extraction to identify the most frequently used keywords in research papers. Using TF-IDF and CountVectorizer techniques, it extracts key terms and generates a concise summary based on the most relevant words found in the text. This tool is useful for researchers, students, and professionals who need quick insights from large documents.
 
 ## Features
-[Features](#features)
+
 
 ### Text Preprocessing:
 - Converts text to lowercase
@@ -22,10 +22,10 @@ This project focuses on keyword extraction to identify the most frequently used 
 - Highlights the most important terms in the text
 
 ## System Requirements
-[System Requirements](#system-requirements)
+
 
 ## Installation
-[Installation](#installation)
+
 
 ### Prerequisites
 Ensure you have Python 3.x installed.
@@ -45,7 +45,7 @@ python -c "import flask; print(flask.__version__)"
 If it prints a version number (e.g., `2.2.5`), Flask is installed correctly.
 
 ## Downloading Models
-[Downloading Models](#downloading-models)
+
 
 ## Run the Flask App
 
@@ -71,10 +71,10 @@ python app.py
 ```
 
 ### Open the application in your browser:
-Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to see the Flask app running.
+Go to (http://127.0.0.1:5000/) to see the Flask app running.
 
 ## Usage
-[Usage](#usage)
+
 
 1. Upload a research paper (text format).
 2. Extract keywords using TF-IDF.
